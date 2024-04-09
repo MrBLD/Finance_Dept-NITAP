@@ -1,0 +1,55 @@
+{% include 'navigation_bar.html' %}
+{% block body %}
+<script>
+  function checkpassword()
+  {
+    if(document.registration.pwd.value != document.registration.cpwd.value)
+    {
+      alert("Password and Confirm Password does not match");
+      document.registration.cpwd.focus();
+      return false;
+    }
+    return true;
+  }
+</script>
+
+{% if error == "no" %}
+<script>
+    alert("Registration Succesfull");
+    window.location=('{% url 'dashboard' %}');
+</script>
+{% endif %}
+
+{% if error == "yes" %}
+<script>
+  alert("{{ABC}}")
+</script>
+{% endif %}
+
+<form method="post" name="registration" onsubmit = " return checkpassword()">
+    {% csrf_token %}
+    <div>
+      <label>First Name</label>
+      <input type="text" name="first_name" placeholder="Enter First Name" required>
+
+      <label>Last Name</label>
+      <input type="text" name="last_name" placeholder="Enter Last Name" required>
+
+      <label>Email</label>
+      <input type="email" name="email" placeholder="Enter Email" required>
+
+      <label>Employee Id</label>
+      <input type="text" name="id" placeholder="Enter Employee Id" required>
+
+      <label>Password</label>
+      <input type="password" name="pwd" placeholder="Enter Password" required>
+
+      <label>Confirm Password</label>
+      <input type="password" name="cpwd" placeholder="Enter Password Again" required>
+    </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+
+{% endblock body %}
