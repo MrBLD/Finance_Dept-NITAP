@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Excel Viewer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.0/xlsx.full.min.js"></script>
+</head>
+<body>
+    <input type="file" id="excelFileInput" accept=".xlsx" onchange="handleFile(this.files)">
+    <div id="excelTable"></div>
+
+    <script>
+        function handleFile(files) {
+            if (files.length === 0) return;
+
+            const file = files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                const data = new Uint8Array(e.target.result);
+                const workbook = XLSX.read(data, { type: 'array' });
+                const sheetName = workbook.SheetNames[0]; // Assuming the first sheet
+
+                const sheet = XLSX.utils.sheet_to_html(workbook.Sheets[sheetName]);
+
+                document.getElementById('excelTable').innerHTML = sheet;
+            };
+
+            reader.readAsArrayBuffer(file);
+        }
+    </script>
+</body>
+</html>
