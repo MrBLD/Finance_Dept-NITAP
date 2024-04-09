@@ -1,0 +1,47 @@
+{% load static %}
+{% block body %}
+    <script>
+        function checkpassword()
+        {
+        if(document.registration.pwd.value != document.registration.cpwd.value)
+        {
+            alert('Password and Confirm Password does not match');
+            document.registration.cpwd.focus();
+            return false;
+        }
+        return true;
+        }
+  </script>
+    {% if error %}
+        <script>
+            alert('{{error}}')
+        </script>
+    {% endif %}
+<link rel='stylesheet' type='text/css' href='/static/SalarySlip/css/style.css'>
+<body class='lg_body'>
+    <div class='login-page' >
+		<div style='display: flex; flex-direction: column;'>
+        <img style='border-bottom-left-radius: 10px;' src='{% static 'SalarySlip/image/logo.png' %}' alt='College Logo'>
+		<p style='background-color: white; color: #027456; font-size: large; text-align: center; border-radius: 40px; margin: 1%;'><b>Finance Department</b></p></div>
+		<div class='form'>
+			<form method='post' class='login-form' name='registration' onsubmit = 'return checkpassword()'>
+            <div>
+            {% csrf_token %}
+
+                <label>Old Password</label>
+                <input type='password' name='o_pwd' placeholder='Enter Old Password' required>
+
+                <label>New Password</label>
+                <input type='password' name='pwd' placeholder='Enter New Password' required>
+
+                <label>Confirm New Password</label>
+                <input type='password' name='cpwd' placeholder='Enter New Password Again' required>
+
+            </div>
+        <button type='submit' class='btn btn-primary'>Change</button>
+        </form>
+		</div>
+	</div>
+</body>
+
+{% endblock body %}

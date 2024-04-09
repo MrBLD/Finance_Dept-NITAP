@@ -1,0 +1,19 @@
+{% load static %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<body class="lg_body">
+    {% include 'navigation_bar.html' %}
+    <div class='content'>
+        <div>
+            <img src='{% static 'SalarySlip/image/Dash.svg' %}' alt='icon'><h2 style='margin-left: 8%' ;><b>Excel View</b></h2></a> </li>
+        </div>
+        <div>
+            {% if excel_data_html %}
+                <div class="view.table">
+                    {{ excel_data_html | safe }}
+                </div>
+            {% else %}
+                <p>No data available for the selected month and year.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
