@@ -1,71 +1,103 @@
 <html>
 
 <style type="text/css">
-    .tg {
-        border-collapse: collapse;
-        border-spacing: 0;
-        border-color: black;
-        border-style: solid;
-        border-width: 1px;
-        font-family: Arial, sans-serif;
-        font-size: 14px;
-        padding: 10px 5px;
+    .container {
+        display: flex;
     }
 
-    .tg td {
-        border-color: black;
-        border-style: solid;
-        border-width: 1px;
-        font-family: Arial, sans-serif;
-        font-size: 14px;
-        overflow: hidden;
-        padding: 10px 5px;
-        word-break: normal;
+    .table-wrapper {
+        flex: 1;
     }
 
-    .tg th {
-        border-color: black;
-        border-style: solid;
-        border-width: 1px;
-        font-family: Arial, sans-serif;
-        font-size: 14px;
-        font-weight: normal;
-        overflow: hidden;
-        padding: 10px 5px;
-        word-break: normal;
-    }
+        margin-rig .tg {
+            border-collapse: collapse;
+            border: 1px solid #111;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            padding: 10px 5px;
+        }
+
+        .tg td {
+            border-collapse: collapse;
+            border: 1px solid #111;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            overflow: hidden;
+            padding: 10px 5px;
+            word-break: normal;
+        }
+
+        .tg th {
+            border-collapse: collapse;
+            border: 1px solid #111;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            overflow: hidden;
+            padding: 10px 5px;
+            word-break: normal;
+        }
+
+        .banner {
+            text-align: center;
+            padding: 0px;
+        }
+
+        .info {
+            display: table;
+            width: 100%;
+        }
+
+        .row {
+            display: table-row;
+        }
+
+        .info-cell {
+            display: table-cell;
+            padding: 5px;
+            border-bottom: 1px solid #ddd;
+            font-weight: bold;
+        }
+
+
+        .nit_logo {
+            padding: 6%;
+            width: 100px;
+            border-radius: 40px;
+        }
+
+        .foot{
+            display: inline-block; /* Make the div inline so it respects text-align */
+            padding: 10px;
+            padding-right: 50px;
+        }
 </style>
 
 <body>
-    <table class="tg" style="text-align: center;">
-        <thead>
-            <tr>
-                <th colspan="5"><span style="color:#1A581B"><b>NATIONAL INSTITUTE OF TECHNOLOGY, ARUNACHAL
-                            PRADESH</b></span></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td colspan="5"><span style="color:#1A581B"><b>Jote :: ARUNACHAL PRADESH ::
-                            791113</b></span></td>
-            </tr>
-            <tr>
-                <td colspan="5"><span><b>PAY SLIP --February 2024.</b></span></td>
-            </tr>
-            <tr>
-                <td colspan="4"><span><b>Name </b></span></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td colspan="4"><span><b>Designation </b></span></td>
-                <td><b>BRANCH</b></td>
-            </tr>
-        </tbody>
-    </table>
-
-
     <div style="display: flex;">
-        <table class="tg table1">
+        <div class="nit">
+            <img src="https://www.nitap.ac.in/assets/logo_big.jpg" alt="NITAP Logo" class="nit_logo">
+        </div>
+        <div class="banner">
+            <h3 style='color: #1A581B;'>NATIONAL INSTITUTE OF TECHNOLOGY, ARUNACHAL PRADESH</br>Jote :: ARUNACHAL
+                PRADESH :: 791113</br>
+                <span style="color: black;">PAY SLIP --February 2024</span>
+            </h3>
+            <div class="info">
+                <div class="row">
+                    <div class="info-cell">Name</div>
+                </div>
+                <div class="row">
+                    <div class="info-cell">Designation</div>
+                    <div class="info-cell">BRANCH</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="display: flex; ">
+        <table class="tg table1 table-wrapper">
             <thead>
                 <tr>
                     <th colspan="3"><b>TOTAL PAYABLE (A)</b></th>
@@ -130,7 +162,7 @@
             </tbody>
         </table>
 
-        <table class="tg table2">
+        <table class="tg table2 table-wrapper">
             <thead>
                 <tr>
                     <th colspan="3"><b>TOTAL DEDUCTION (B)</b></th>
@@ -196,69 +228,17 @@
         </table>
     </div>
 
-    <table class="tg">
-        <thead>
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Net Payable(A-B)</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Faculty I/c</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>(Finance &amp; Accounts)</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>NIT,A.P.Jote.</td>
-                <td></td>
-            </tr>
-        </tbody>
-    </table>
-
+    <div class="info" style="text-align: right; ">
+        <div class="row">
+            <div class="info-cell foot">Net Payable(A-B)</div>
+            <div  class="info-cell foot">0</div>
+        </div>
+        <div class="row">
+            <div class="foot" style="padding-top: 100px; padding-right: 80; text-align: center;">
+                <p><b>Faculty I/c</br>(Finance & Accounts)</br>NIT,A.P.Jote.</b></p>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
