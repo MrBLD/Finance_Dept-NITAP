@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flex Table with Display Size</title>
+<style>
+    .container {
+        display: flex;
+    }
+    .table-wrapper {
+        flex: 1;
+        margin-right: 20px; /* Adjust margin as needed */
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid #ddd;
+    }
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="table-wrapper">
+        <h2>Table 1</h2>
+        <table>
+            <tr>
+                <th>Header 1</th>
+                <th>Header 2</th>
+                <th>Header 3</th>
+            </tr>
+            <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+                <td>Data 3</td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </table>
+    </div>
+    <div class="table-wrapper">
+        <h2>Table 2</h2>
+        <table>
+            <tr>
+                <th>Header A</th>
+                <th>Header B</th>
+                <th>Header C</th>
+            </tr>
+            <tr>
+                <td>Data A</td>
+                <td>Data B</td>
+                <td>Data C</td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
