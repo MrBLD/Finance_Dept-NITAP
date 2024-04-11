@@ -4,11 +4,11 @@
     {% include 'navigation_bar.html' %}
     <div class='content'>
         <div>
-            <img src='{% static 'SalarySlip/image/Dash.svg' %}' alt='icon'><h2 style='margin-left: 8%' ;><b>Excel View</b></h2></a> </li>
+            <h2 style='margin-left: 8%' ;><b>Excel View</b></h2>
         </div>
         <div>
             {% if excel_data_html %}
-                <div class="view.table">
+                <div>
                     {{ excel_data_html | safe }}
                 </div>
             {% else %}

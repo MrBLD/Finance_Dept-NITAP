@@ -13,12 +13,6 @@ globalV = False
 globalId = 0
 global_months_list = []
 
-def update_data():
-    global All_month
-    newdata=Report.objects.all()
-    All_month=newdata
-    del newdata
-
 def creatingmonthly(id):
     global globalV
     global globalId
@@ -93,10 +87,14 @@ def getData(id, month, year):
     df = pd.read_excel(address)
     if df['Employee ID'].isin([id]).any():
         filtered_df = df[df['Employee ID'] == id]
+        print(1)
+        print(filtered_df)
         del df
         columns_to_remove = ['Employee ID', 'Name','Net_Amount']
         filtered_df.drop(columns=columns_to_remove, inplace=True)
         ans = filtered_df.to_dict(orient='records')
+        print(2)
+        print(filtered_df)
         del filtered_df
         ans['Emp_id'] = id
         ans['month'] = month
@@ -145,9 +143,12 @@ def dashboard(request):
         return redirect('SalarySlip:login')
 
 def help(request):
-    print(All_month)
+    print(type(All_month))
     if request.user.is_authenticated:
-        return render(request, 'help_page.html')
+        if request.user.is_superuser:
+            return render(request, 'help_page_admin.html')
+        else:
+            return render(request, 'help_page.html')
     else:
         return redirect('SalarySlip:login')
 
@@ -205,8 +206,7 @@ def upload(request):
                         context = {
                             'error' : 'deleted'
                         }
-                        # All_month = Report.objects.all()
-                        update_data()
+                        All_month = Report.objects.all()
                         return render(request, 'upload_page.html', context)
                     else:
                         print('in reuploading data not found')
@@ -226,8 +226,7 @@ def upload(request):
                         context = {
                             'error' : 'Uploaded'
                         }
-                        # All_month = Report.objects.all()
-                        update_data()
+                        All_month = Report.objects.all()
                         return render(request, 'upload_page.html', context)
         else:
             return render(request, 'upload_page.html')

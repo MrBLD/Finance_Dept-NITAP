@@ -3,7 +3,11 @@
 <html lang='en'>
     <head>
         <title>Download</title>
-        <link rel='stylesheet' type='text/css' href='C:\Users\bhask\Downloads\FinDept\style.css'>
+        {% if error %}
+        <script>
+            alert('{{error}}')
+        </script>
+    {% endif %}
     </head>
     <body class=lg_body>
         <div>
@@ -80,30 +84,4 @@
                 </section>
             </div>
         </div>
-        {% comment %} {% if data %}
-            <div>
-                <table>
-                    <thead>
-                      <tr>
-                        <th>Employee ID</th>
-                        {% for column in columns %}
-                          <th>{{ column }}</th>
-                        {% endfor %}
-                        <th>Total</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {% for row in data %}
-                        <tr>
-                            <td> Employee ID</td>
-                            {% for column in columns %}
-                              <td>{{ row.get(column)}}</td>
-                            {% endfor %}
-                            <td>{{ row.TOTAL }}</td>
-                        </tr>
-                      {% endfor %}
-                    </tbody>
-                </table>                
-            </div>
-        {% endif %} {% endcomment %}
     </body>

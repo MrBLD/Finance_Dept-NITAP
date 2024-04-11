@@ -23,12 +23,12 @@
         <section class='base-cards' style='padding-bottom: 0%;'>
             <div class='card2'>
                 <h3>Last Log-in</h3>
-                <p style='font-size: 125%;'> <span style='font-size: 185%;'>{{ admin.last_login }}</span></p>
+                <p style='font-size: 125%;'> <span style='font-size: 185%;'>{{ request.user.last_login }}</span></p>
                 <!-- <p><span style=' font-size: 125%'>XXX</span> <span color: black;>Before</span></p> -->
             </div>
             <div class='card2'>
                 <h3>Date Joined</h3>
-                <p style='font-size: 125%;'> <span style='font-size: 185%;'>{{ admin.date_joined }}</span></p>
+                <p style='font-size: 125%;'> <span style='font-size: 185%;'>{{ request.user.date_joined }}</span></p>
                 <!-- <p style='font-size: 185%; color:#027456'></p> -->
                 <!-- <p><span style=' font-size: 125%'>XXX</span> <span color: black;>Before</span></p> -->
             </div>
