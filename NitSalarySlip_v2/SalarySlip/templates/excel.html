@@ -1,18 +1,53 @@
 {% load static %}
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    .circular-button {
+        width: 5%;
+        /* Adjust the size of the button as needed */
+        height: 5%;
+        /* Adjust the size of the button as needed */
+        border-radius: 50%;
+        /* Makes it a circle */
+        background-color: #00A87B;
+        /* Button background color */
+        text-align: center;
+        /* Center text horizontally */
+        position: relative;
+        overflow: hidden;
+    }
+
+    .arrow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-135deg);
+        width: 18px;
+        /* Adjust the size of the arrow */
+        height: 18px;
+        /* Adjust the size of the arrow */
+        border-top: 2px solid white;
+        border-right: 2px solid white;
+    }
+</style>
+
 <body class="lg_body">
     {% include 'navigation_bar.html' %}
     <div class='content'>
         <div>
-            <h2 style='margin-left: 8%' ;><b>Excel View</b></h2>
+            <h2 style='margin-left: 8%; ;'>
+                <button class="circular-button">
+                        <div class="arrow"></div>
+                </button>
+                <b style="vertical-align: -webkit-baseline-middle;">Excel View</b></h2>
         </div>
         <div>
             {% if excel_data_html %}
-                <div class="card2" style="display: inline-table;">
-                    {{ excel_data_html | safe }}
-                </div>
+            <div class="card2" style="display: inline-table;">
+                {{ excel_data_html | safe }}
+            </div>
             {% else %}
-                <p>No data available for the selected month and year.</p>
+            <p>No data available for the selected month and year.</p>
             {% endif %}
         </div>
     </div>
