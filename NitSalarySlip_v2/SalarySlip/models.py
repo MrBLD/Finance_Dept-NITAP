@@ -3,19 +3,17 @@ import os
 from os import path
 from django.db import models
 from django.contrib.auth.models import User
-# from NitSalarySlip import settings
-from django.core.exceptions import SuspiciousFileOperation
-from django.core.files.storage import default_storage
 # Create your models here.
 
 class Teacher(User):
     Employee_id = models.IntegerField(primary_key=True)
     image = models.ImageField(upload_to='media/Images',blank=True, null=True)
+    Degisnation = models.CharField(max_length=100, default="Employee")
 
     def save(self, *args, **kwargs):
         if self.image:
             ext = path.splitext(filename)[1]
-            self.image.name = f"{self.month}_{self.year}{ext}"
+            self.image.name = f"{self.first_name}_{self.last_name}_{self.Degisnation}{ext}"
         super().save(*args, **kwargs)
 
     def __str__(self):
