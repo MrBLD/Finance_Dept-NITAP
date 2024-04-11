@@ -13,6 +13,12 @@ globalV = False
 globalId = 0
 global_months_list = []
 
+def update_data():
+    global All_month
+    newdata=Report.objects.all()
+    All_month=newdata
+    del newdata
+
 def creatingmonthly(id):
     global globalV
     global globalId
@@ -139,12 +145,9 @@ def dashboard(request):
         return redirect('SalarySlip:login')
 
 def help(request):
-    print(type(All_month))
+    print(All_month)
     if request.user.is_authenticated:
-        if request.user.is_superuser:
-            return render(request, 'help_page_admin.html')
-        else:
-            return render(request, 'help_page.html')
+        return render(request, 'help_page.html')
     else:
         return redirect('SalarySlip:login')
 
@@ -202,7 +205,8 @@ def upload(request):
                         context = {
                             'error' : 'deleted'
                         }
-                        All_month = Report.objects.all()
+                        # All_month = Report.objects.all()
+                        update_data()
                         return render(request, 'upload_page.html', context)
                     else:
                         print('in reuploading data not found')
@@ -222,7 +226,8 @@ def upload(request):
                         context = {
                             'error' : 'Uploaded'
                         }
-                        All_month = Report.objects.all()
+                        # All_month = Report.objects.all()
+                        update_data()
                         return render(request, 'upload_page.html', context)
         else:
             return render(request, 'upload_page.html')
