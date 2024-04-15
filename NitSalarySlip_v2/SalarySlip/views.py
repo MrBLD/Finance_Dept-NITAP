@@ -13,6 +13,10 @@ globalV = False
 globalId = 0
 global_months_list = []
 
+def convert_allmonth(data):
+    All_month=data
+
+
 def creatingmonthly(id):
     global globalV
     global globalId
@@ -206,7 +210,8 @@ def upload(request):
                         context = {
                             'error' : 'deleted'
                         }
-                        All_month = Report.objects.all()
+                        data=Report.objects.all()
+                        convert_allmonth(data)
                         return render(request, 'upload_page.html', context)
                     else:
                         print('in reuploading data not found')
@@ -226,7 +231,8 @@ def upload(request):
                         context = {
                             'error' : 'Uploaded'
                         }
-                        All_month = Report.objects.all()
+                        data=Report.objects.all()
+                        convert_allmonth(data)
                         return render(request, 'upload_page.html', context)
         else:
             return render(request, 'upload_page.html')
