@@ -1,0 +1,71 @@
+{% load static %}
+
+<!doctype html>
+{% load static %}
+<html lang='en'>
+    <head>
+        <title>Teacher Registration</title>
+        <script>
+          function checkpassword()
+          {
+            if(document.registration.pwd.value != document.registration.cpwd.value)
+            {
+              alert('Password and Confirm Password does not match');
+              document.registration.cpwd.focus();
+              return false;
+            }
+            return true;
+          }
+        </script>
+        {% if error %}
+            <script>
+              alert('{{ error }}')
+            </script>
+        {% endif %}
+    </head>
+    <body class=lg_body>
+        {% include 'navigation_bar.html' %}
+        <div class='content'>
+            <div>
+                <h2 style='margin-left: 4%; margin-bottom:0%; margin-top:0%' ;><b>Teacher Registration</b></h2>
+            </div>
+            <div class='data-card data' style=' display: flex; flex-direction: column;flex-wrap: wrap;'>
+                <div>
+                    <h2 align='Left'><b>Teacher Registration Details</b></h2>
+                </div>
+                <form method='post' name='registration' onsubmit = 'return checkpassword()'>
+                    {% csrf_token %}
+                    <div align='center' style='display: flex; align-items: center; padding-bottom: 1%;'>
+                      <label>First Name      </label>
+                      <input type='text' name='first_name' placeholder='Enter First Name' required>
+                    </div>
+                    <div align='center' style='display: flex; align-items: center; padding-bottom: 1%;'>
+                      <label>Last Name      </label>
+                      <input type='text' name='last_name' placeholder='Enter Last Name' required>
+                    </div>
+                    <div align='center' style='display: flex; align-items: center; padding-bottom: 1%;'>
+                      <label>Email      </label>
+                      <input type='email' name='email' placeholder='Enter Email' required>
+                    </div>
+                    <div align='center' style='display: flex; align-items: center; padding-bottom: 1%;'>
+                      <label>Employee Id      </label>
+                      <input type='text' name='id' placeholder='Enter Employee Id' required>
+                    </div>
+                    <div align='center' style='display: flex; align-items: center; padding-bottom: 1%;'>
+                      <label>Degisnation      </label>
+                      <input type='text' name='degisnation' placeholder='Enter Degisnation' required>
+                    </div>
+                    <div align='center' style='display: flex; align-items: center; padding-bottom: 1%;'>
+                      <label>Password      </label>
+                      <input type='password' name='pwd' placeholder='Enter Password' required>
+                    </div>
+                    <div align='center' style='display: flex; align-items: center; padding-bottom: 1%;'>
+                      <label>Confirm Password      </label>
+                      <input type='password' name='cpwd' placeholder='Enter Password Again' required>
+                    </div>
+                  <button type='submit' class='btn btn-primary'>Submit</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+{% load static %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<body class="lg_body">
+    {% include 'navigation_bar.html' %}
+    <div class='content'>
+        <div>
+            <h2 style='margin-left: 8%' ;><b>Monthly View</b></h2>
+        </div>
+        <div>
+            <section class='base-cards'>
+                {% if data %}
+                    {% for item in data %}
+                    <div class='card2'>
+                        <h3>{{ item.month }} {{ item.year }}</h3>
+                        <a href="/excel/{{ item.month }}/{{ item.year }}"><button class="generateExcelButton">Show</button></a>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p>Sorry No Data for you is available</p>
+                {% endif %}
+            </section>
+        </div>
+    </div>
+</body>

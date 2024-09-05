@@ -1,0 +1,56 @@
+{% load static %}
+
+<!doctype html>
+{% load static %}
+<html lang='en'>
+
+<head>
+    <title>DashBoard</title>
+</head>
+<body class='lg_body'>
+    {% include 'navigation_bar_user.html' %}
+    <script>
+        const element = document.getElementById('dashboard')
+        element.className = 'btn btn-white btn-animation-1 btn-active';
+    </script>
+    <div class='content'>
+        <div>
+            <h2 style='margin-left: 8%' ;><b>Dashboard</b></h2>
+        </div>
+
+        <div class='data-card'>
+            <div>
+                <img src='{% static 'SalarySlip/image/dp1.jpg' %}' class='dp' alt='icon'>
+            </div>
+
+            <div class='data'>
+                First Name: <span><b>{{ request.user.first_name }} </b></span><br>
+                Last Name: <span><b>{{ request.user.last_name }}</b> </span><br>
+                Degisnation: <span><b>{{ request.user.Degisnation }}</b></span><br>
+                E-Mail: <span><b> {{ request.user.email }} </b></span><br>
+                <a href='/changepassword' style='font-size:80%; padding-left: 25%;'> Change Password </a>
+                </div>
+            </div>
+
+            <section class='base-cards' style='padding-bottom: 0%;'>
+                <div class='card2'>
+                    <h3>Last Log-in</h3>
+                    <p style='font-size: 125%;'> <span style='font-size: 185%;'>{{ request.user.last_login }}</span></p>
+                    <!-- <p><span style=' font-size: 125%'>XXX</span> <span color: black;>Before</span></p> -->
+                </div>
+                <div class='card2'>
+                    <h3>Date Joined</h3>
+                    <p style='font-size: 125%;'> <span style='font-size: 185%;'>{{ request.user.date_joined }}</span></p>
+                    <!-- <p style='font-size: 185%; color:#027456'></p> -->
+                    <!-- <p><span style=' font-size: 125%'>XXX</span> <span color: black;>Before</span></p> -->
+                </div>
+
+                <div class='misc-card'>
+                    <p><img src='{% static 'SalarySlip/image/misc.png' %}' align='center' class='misc-img'></p>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html >

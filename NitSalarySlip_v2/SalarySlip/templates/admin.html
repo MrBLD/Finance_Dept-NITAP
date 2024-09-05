@@ -1,0 +1,41 @@
+{% load static %}
+<body class=lg_body>
+    {% include 'navigation_bar.html' %}
+    <div class='content'>
+         <div>
+            <h2 style='margin-left: 8%' ;><b>Dashboard</b></h2>
+        </div>
+
+        <div class='data-card'>
+            <div>
+                <img src='{% static 'SalarySlip/image/dp1.jpg' %}' class='dp'
+                    alt='icon'>
+            </div>
+
+            <div class='data'>
+                User: <span><b>Financial Dept.</b></span><br>
+                Privilage: <span><b>Admin Privilage Acive</b> </span><br>
+                ID: <span><b>XXX</b></span><br>
+                E-Mail: <span><b>dy.reg.finance@nitap.ac.in </b></span><br>
+            </div>
+        </div>
+
+        <section class='base-cards' style='padding-bottom: 0%;'>
+            <div class='card2'>
+                <h3>Last Log-in</h3>
+                <p style='font-size: 125%;'> <span style='font-size: 185%;'>{{ request.user.last_login }}</span></p>
+                <!-- <p><span style=' font-size: 125%'>XXX</span> <span color: black;>Before</span></p> -->
+            </div>
+            <div class='card2'>
+                <h3>Date Joined</h3>
+                <p style='font-size: 125%;'> <span style='font-size: 185%;'>{{ request.user.date_joined }}</span></p>
+                <!-- <p style='font-size: 185%; color:#027456'></p> -->
+                <!-- <p><span style=' font-size: 125%'>XXX</span> <span color: black;>Before</span></p> -->
+            </div>
+    
+            <div class='misc-card'>
+                <p><img src='{% static 'SalarySlip/image/misc.png' %}' align='center' class='misc-img'></p>
+            </div>
+        </section>
+    </div>
+</div>
