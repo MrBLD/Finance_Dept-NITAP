@@ -11,7 +11,7 @@
     </head>
     <body class=lg_body>
         <div>
-            {% include 'navigation_bar_user.html' %}
+            {% include 'navigation_bar.html' %}
             <div class='content'>
                 <div class='content'>
                 <div>
@@ -22,9 +22,18 @@
                 <div>
                     <h2 align='Left'><b>Download Details</b></h2>
                 </div>
+                {%if data%}
                 <form method='post' enctype='multipart/form-data'>
                     {% csrf_token %}
-                    <div  style='display: flex; align-items: center; padding-bottom: 1%;'>
+                    <div style='display: flex; align-items: center; padding-bottom: 1%;'>
+                        <label for='teacher'>Teacher's Name: &emsp;</label>
+                        <select id='Teachers' name = 'teacher'>
+                            {% for item in data %}
+                                <option value={{item.id}}>{{item.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div style='display: flex; align-items: center; padding-bottom: 1%;'>
                         <label for='month'>Month: &emsp;</label>
                         <select id='Months' name = 'month'>
                             <option value='January'>January</option>
@@ -63,8 +72,10 @@
                     </button>
                     </div>
                 </form>
+                {%else%}
+                    <p>Sorry No Teacher has been registered yet.</p>
+                {%endif%}
             </div>
-
                 <section class='base-cards' style='display: flex; padding-bottom: 0%;'>
                     <div class='card2'>
                         <h3>Last Log-in</h3>

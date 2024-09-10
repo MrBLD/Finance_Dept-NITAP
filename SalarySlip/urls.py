@@ -5,39 +5,43 @@ app_name = 'SalarySlip'
 
 urlpatterns = [
     # Add path here
+    # User DashBoard
     path(route='', view=views.dashboard),
-    path(route='dashboard', view=views.dashboard),
     path(route='dashboard', view=views.dashboard, name='dashboard'),
-    
-    path(route='register', view=views.TeacherRegistration),
+
+    # User Registration form the userside
     path(route='register', view=views.TeacherRegistration, name='register'),
-    
-    path(route='login/', view=views.user_login,),
+
+    # Admin and User login
     path(route='login/', view=views.user_login, name='login'),
-    
-    path(route='upload', view=views.upload),
+
+    # Upload and Reupload on the Admin Side
     path(route='upload', view=views.upload, name='upload'),
 
-    path(route='monthlyview', view=views.monthly_report),
+    # Monthly Report Page on User Side
     path(route='monthlyview', view=views.monthly_report, name='monthlyview'),
-    
-    path(route='download', view=views.download),
+
+    # Dowload page on User Side
     path(route='download', view=views.download, name='download'),
 
-    path(route='view', view=views.view),
+    # Monthly Data view Page on Admin Side
     path(route='view', view=views.view, name='view'),
 
-    path(route='logout/', view=views.log_out), 
+    # Logout Page
     path(route='logout/', view=views.log_out, name='logout'),
 
-    path(route='admin', view=views.admin),
+    # Admin Dashboard
     path(route='admin', view=views.admin, name='admin'),
 
-    path(route='changepassword', view=views.changepassword),
+    #Changepassword for Admin Side
     path(route='changepassword', view=views.changepassword, name='changepassword'),
 
-    path(route='help', view=views.help),
+    # Help Page for both Admin and User
     path(route='help', view=views.help, name='help'),
 
-    path(route='excel/<str:month>/<int:year>/', view=views.excelread),
+    # Admin Side Download Page
+    path(route='slip', view=views.slipdownload, name='slipdownload'),
+
+    # Excel View Page on the Admin side
+    path(route='excel/<str:month>/<int:year>/', view=views.excelread, name='excelread'),
 ]

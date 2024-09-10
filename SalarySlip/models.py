@@ -6,7 +6,6 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Teacher(User):
-    Employee_id = models.IntegerField(primary_key=True)
     image = models.ImageField(upload_to='media/Images',blank=True, null=True)
     Degisnation = models.CharField(max_length=100, default="Employee")
 
@@ -18,6 +17,10 @@ class Teacher(User):
 
     def __str__(self):
         return self.first_name
+    
+    def getEmail(self):
+        return self.email
+    
 
 class Report(models.Model):
     month = models.CharField(max_length=25)

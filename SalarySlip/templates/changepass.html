@@ -1,17 +1,31 @@
 {% load static %}
 {% block body %}
     <script>
-        function checkpassword()
-        {
-        if(document.registration.pwd.value != document.registration.cpwd.value)
-        {
-            alert('Password and Confirm Password does not match');
-            document.registration.cpwd.focus();
-            return false;
+        function checkpassword() {
+            var password = document.registration.pwd.value;
+            var confirmPassword = document.registration.cpwd.value;
+
+            // Password pattern: At least 8 characters, 1 uppercase letter, 1 lowercase letter, 1 number, 1 special character
+            var pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+
+            // Check if password matches the pattern
+            if (!pattern.test(password)) {
+                document.getElementById('password-rules').style.display = 'block';  // Show the rules if invalid
+                alert('Password does not meet the required criteria.');
+                document.registration.pwd.focus();
+                return false;
+            }
+
+            // Check if confirm password matches the password
+            if (password != confirmPassword) {
+                alert('Password and Confirm Password do not match');
+                document.registration.cpwd.focus();
+                return false;
+            }
+
+            return true;
         }
-        return true;
-        }
-  </script>
+    </script>
     {% if error %}
         <script>
             alert('{{error}}')
@@ -36,6 +50,17 @@
 
                 <label>Confirm New Password</label>
                 <input type='password' name='cpwd' placeholder='Enter New Password Again' required>
+
+                <div id="password-rules" style="display:none; color:red; margin-top: 10px;">
+                    <p><b>Password must meet the following criteria:</b></p>
+                    <ul>
+                        <li>At least 8 characters long</li>
+                        <li>Contains at least 1 uppercase letter</li>
+                        <li>Contains at least 1 lowercase letter</li>
+                        <li>Contains at least 1 number</li>
+                        <li>Contains at least 1 special character (e.g. !@#$%^&*)</li>
+                    </ul>
+                </div>
 
             </div>
         <button type='submit' class='btn btn-primary'>Change</button>
