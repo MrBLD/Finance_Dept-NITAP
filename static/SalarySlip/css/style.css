@@ -66,6 +66,11 @@ nav a {
     font-size: larger;
 }
 
+.l3 {
+    margin-top: 20%;
+    font-size: larger;
+}
+
 .data-card {
     display: flex;
     top: 0px;
