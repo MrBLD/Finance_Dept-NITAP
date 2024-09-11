@@ -377,14 +377,14 @@ input[type="password"] {
     transform: translateY(-50%);
     width: 2rem;
     height: 2rem;
-    background: transparent url('SalarySlip/image/eye.svg') no-repeat center;
+    background: transparent url('/static/SalarySlip/image/eye.svg') no-repeat center;
     background-size: contain;
     cursor: pointer;
 }
 
 /* Style the toggle button when password is visible */
 .toggle-password.active {
-    background-image: url('SalarySlip/image/eye.svg');
+    background-image: url('/static/SalarySlip/image/eye.svg');
 }
 
 
