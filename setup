@@ -1,3 +1,25 @@
+sudo apt-get install ufw
+sudo ufw default allow outgoing
+sudo ufw default deny incoming
+sudo apt-get install python3-pip
+sudo apt-get install python3-venv
+
+
+python3 -m venv env/venv
+source env/venv/bin/activate
+pip3 install requirements.txt
+pip3 install django
+pip3 install pandas
+pip3 install pillow
+pip3 install openpyxl
+cls
+python manage.py collectstatic
+hostname -I
+python manage.py createsuperuser
+python manage.py runserver 0.0.0.0:8000
+
+
+----------------------------------------------------------------------------------------------------------------------------
 pip install django
 pip3 install django
 python -m venv /home/mrbld/Documents/python/django
@@ -13,11 +35,6 @@ ALLOWED_HOSTS = ['*']
 hostnamectl set-hostname django-server
 hostname
 nano /etc/hosts
-sudo apt-get install ufw
-sudo ufw default allow outgoing
-sudo ufw default deny incoming
-sudo apt-get install python3-pip
-sudo apt-get install python3-venv
 hostname -I
 python3 -m venv env/venv
 ls env/
